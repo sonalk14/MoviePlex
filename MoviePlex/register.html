@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:url(bg5.jpg) no-repeat center center/cover;
+        }
+        .register{
+            background-color:rgb(147, 178, 184) ;
+            
+            width: 300px;
+            padding: 20px;
+            margin-left : 450px;
+            text-align: center;
+           
+        }
+        .text{
+            padding: 5px 20px 5px 20px;
+        }
+        .btn{
+            padding: 0.7rem 1.4rem;
+            background-color: #ff2c1f;
+            color:#fff;
+            font-weight: 400;
+            border-radius: 0.5rem;
+            margin-top:-15px ;
+            text-decoration: none;
+        }
+        .check{
+            color: grey;
+            margin: 2px 0px 2px 0px;
+        }
+        .text1{
+            color: white;
+            font-size: 1.9rem;
+            text-align: center;
+            text-decoration: underline ;
+            text-shadow:2px 2px blue ;
+        }
+        .text2{
+            text-decoration: none;
+            color: rgb(79, 16, 109);
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 class="text1">World of entertainment is waiting for you!</h3>
+    <div class="register">
+        <h3>Create Account</h3>
+        <input type="text" id="uname"  class="text"  placeholder="Enter your name"><br><br>
+        <input type="email" class="text" placeholder="Enter Email"><br><br>
+        <input type="password" id="pass" class="text" placeholder="Password"><br><br>
+      <h6 class="check">Agree to all <a href="">term and conditions</a></h6> <br><br>
+        <button type="submit" class="btn" onclick="reg()">Submit</button><br><br>
+        <a href="login.html" class="text2">login to your account</a>
+        <p id="demo"></p>
+    </div>
+
+    <script>
+function reg(){
+        let uname = document.getElementById('uname').value;
+        let pass = document.getElementById('pass').value;
+        // Save the name in localStorage.
+        localStorage.setItem('name', uname);
+        localStorage.setItem('pass', pass);
+        document.getElementById("demo").innerHTML= ("Successful !")}
+    </script>
+    </script>
+</body>
+
+</html>

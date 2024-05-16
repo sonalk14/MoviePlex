@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings Page</title>
+    <style>
+        .book {
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid black;
+            width: 400px;
+            text-align: center;
+            justify-content: center;
+            background-color: rgb(166, 189, 190);
+            margin: auto;
+            padding: 10px;
+            margin-top: 60px;
+        }
+
+        body {
+            background:url(bg5.jpg) no-repeat center center/cover;
+        }
+
+        .btn {
+
+            padding: 0.8rem 1.4rem;
+            background-color: #ff2c1f;
+            color:#fff;
+            font-weight: 400;
+            
+        }
+
+        .btn:hover {
+            cursor: pointer;
+        }
+        #txtTicketTotal{
+            padding: 10px 0px 10px 10px;
+            font-weight: 800;
+            background-color: rgb(230, 216, 216);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book">
+        <h3>Get your tickets today before it's too late!</h3>
+        <input type="text" placeholder="Enter Your name"><br><br>
+        <input type="date" placeholder="Enter date"><br><br>
+        <select name="" id="">
+            <option value="">---select time---</option>
+            <option value="">7:15AM</option>
+            <option value="">11:20AM</option>
+            <option value="">3:30PM</option>
+            <option value="">6:40PM</option>
+            <option value="">9:00PM</option>
+        </select>
+        <br>
+        <br>
+
+
+        <select onchange="showPrice(this.value)" id="txtName">
+            <option>------------Select Movie Name----------</option>
+            <option value="spiderman Across the spider-verse">spiderman Across the spider-verse</option>
+            <option value="Elementals">Elementals</option>
+            <option value="Transformer-Rise of beasts">Transformer-Rise of beasts</option>
+            <option value="Black Panther">Black Panther</option>
+            <option value="Spiderman-Far from home">Spiderman-Far from home</option>
+            <option value="Bharat">Bharat</option>
+            <option value="Captain Marvel">Captain Marvel</option>
+            <option value="Doctor Strange-Multiverse of Madness">Doctor Strange-Multiverse of Madness</option>
+            <option value="Tamas">Tamas</option>
+            <option value="Adhura">Adhura</option>
+            <option value="Dasha">Dasha</option>
+            
+        </select>
+        <br>
+        <br>
+        
+        
+        <input type="number" placeholder="Ticket price" id="txtTicketPrice" readonly onchange="calculateTotal();" />
+        <br />
+        <br>
+        <input placeholder="How many seats you need?" type="number" id="txtNoOfSeats" onchange="calculateTotal();" />
+        <br />
+        <br>
+        <input  type="number" id="txtTicketTotal" readonly />
+        
+        <input class=btn type="reset" value="Book Now" onclick="button()">
+    </div>
+
+
+    <script>
+        let x =[
+    {
+        image: "img1.jpg",
+        name: "spiderman Across the spider-verse",
+        seats: 25,
+        price: 350
+    },
+    {
+        image: "img2.jpg",
+        name: "Elementals",
+        seats: 30,
+        price: 250
+    },
+    {
+        image: "img3.jpg",
+        name: "Transformer-Rise of beasts",
+        seats: 20,
+        price: 200
+    },
+    {
+        image: "img4.jpg",
+        name: "Black Panther",
+        seats: 10,
+        price: 400
+    },
+    {
+        image: "img6.jpg",
+        name: "Spiderman-Far from home",
+        seats: 25,
+        price: 300
+    },
+    {
+        image: "img7.jpg",
+        name: "Bharat",
+        seats: 25,
+        price: 300
+    },
+    {
+        image: "img8.jpg",
+        name: "Captain Marvel",
+        seats: 20,
+        price: 350
+    },
+    {
+        image: "img9.jpg",
+        name: "Doctor Strange-Multiverse of Madness",
+        seats: 15,
+        price: 350
+    },
+    {
+        image: "show1.jpg",
+        name: "Tamas",
+        seats: 42,
+        price: 150
+    },
+    {
+        image: "show2.jpg",
+        name: "Ramkali",
+        seats: 30,
+        price: 200
+    },
+
+
+    {
+        image: "show3.jpg",
+        name: "Adhura",
+        seats: 35,
+        price: 250
+    },
+    {
+        image:"show4.jpg",
+        name:"Dasha",
+        seats:25,
+        price:350
+    }
+]
+
+        function getMoviePrice(name) {
+            var m = x.filter(mv => mv.name == name);
+            return m[0].price;
+            
+        }
+
+        function showName(name) {
+            var nameElement = document.getElementById("txtName");
+            nameElement.value = name;
+        }
+         function showPrice(name) {
+            showName(name);
+
+            var price = getMoviePrice(name);
+            var priceElement = document.getElementById("txtTicketPrice");
+            priceElement.value = price;
+            priceElement.onchange();
+        }
+
+        function calculateTotal() {
+            var price = document.getElementById("txtTicketPrice").value;
+            var seats = document.getElementById("txtNoOfSeats").value;
+
+            var priceElement = document.getElementById("txtTicketTotal");
+            priceElement.value = price * seats;
+        }
+        function button() {
+            alert("you will be redirecteed to payment gateway")
+        }
+
+
+    </script>
+</body>
+
+</html>
